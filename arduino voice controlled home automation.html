@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arduino</title>
+</head>
+<link rel="stylesheet" href="voice.css">
+<body background="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQko32TIJwa2jPCj0MB0kHD74v-MmcY_1lKFQ&usqp=CAU">
+   <!--add icon library-->
+<button class="btn"><a href="E:\harshak\desktop\website page\m\m.html"><i class="fa fa-home" aria-hidden="true"></i>home</button></a></button>
+<div class="do">harshak the maker</div><br><br> 
+<div class="k">how to make a arduino uno based voice controlled home automation </div> <br><br>
+<div class="h">hello guys today i have made a voice controlled home automation project with arduino uno <br><br>
+the materials used:-</div><br>
+<table border="1">
+    <tr>
+        <th>component name</th>
+        <th>quantity</th>
+        <th>price</th>
+    </tr>
+    <tr>
+        <td><a href="https://www.amazon.in/SB-Components-Clear-Arduino-Transparent/dp/B00HFSWC06/ref=asc_df_B00HFSWC06/?tag=googleshopdes-21&linkCode=df0&hvadid=397079618105&hvpos=&hvnetw=g&hvrand=14562054320123768134&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007772&hvtargid=pla-404289807990&psc=1&ext_vrnc=hi">arduino uno</a></td>
+        <td>01</td>
+        <td>₹499</td>
+    </tr>
+    <tr>
+        <td><a href="https://www.electronicscomp.com/hc-05-bluetooth-module-buy-in-india?gclid=Cj0KCQjwsdiTBhD5ARIsAIpW8CLyuzYkeflm22UBJvUnWqjnuBkcKWJtTHQ9-AUZ2EeK4ZR3fvLak7EaAmF3EALw_wcB">hc-05 bluetooth module</a></td> 
+        <td>01</td>
+        <td>₹223</td>
+    </tr>
+    <tr>
+        <td><a href="https://www.electronicscomp.com/2-channel-5v-relay-module-with-optocoupler?gclid=Cj0KCQjwsdiTBhD5ARIsAIpW8CIxFSrT8mnEOsMBfQCkyc0cr6BoeeEQYUFlu9UoEMkn-PEzD9CEQCwaAnrAEALw_wcB">relay module</a></td> 
+        <td>01</td>
+        <td>₹75</td>
+    </tr>
+    <tr>
+        <td><a href="https://robu.in/product/kf301-2-pin-5-08mm-pitch-plug-in-screw-terminal-block-connector-pack-of-5/?gclid=Cj0KCQjwsdiTBhD5ARIsAIpW8CKs4hpKteSUK-zPPH9A5kjRnLZQ0AlE-ayuAa62ybKvG7cTibluufYaAgLdEALw_wcB">2 pin socket</a></td>
+        <td>01</td>
+        <td>₹10</td>
+    </tr>
+    <tr>
+        <td><a href="https://thepurpleturtles.com/products/philips-led-b-22-4-watt-bulb-warm-white?variant=31815686357050&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gclid=Cj0KCQjw1N2TBhCOARIsAGVHQc6pJZzZH_gMgMcOAPyl4xnaPCkxG_HiPCp9Ll_seLXVNz2r7qeGR1MaAh1VEALw_wcB">led bulb</a></td>
+        <td>02</td>
+        <td>₹300</td>
+    </tr>
+    <tr>
+        <td><a href="https://www.amazon.in/Anchor-Panasonic-Batten-Holder-fancy/dp/B07QZG7RNX/ref=asc_df_B07QZG7RNX/?tag=googleshopdes-21&linkCode=df0&hvadid=397082286236&hvpos=&hvnetw=g&hvrand=520003966187582607&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007772&hvtargid=pla-867991296418&psc=1&ext_vrnc=hi">bulb holder</a>
+        <td>02</td>
+        <td>₹100</td>
+    </tr>
+</table><br><br>
+<div class="h">after you have the components you may do its wiring the wiring diagram is given below:-</div><br><br>
+<p align="center"><img src="E:\harshak\pictures\Screenshots\Screenshot (59).png" height="377" width="600"><br>
+    <div class="h">so,we have completed the wiring  and after the wiring you may upload the program to the arduino the program is given below you may copy paste this program in arduino ide and upload it to arduino</div><br>
+    <pre>
+        <font color="#5e6d03">#define</font> <font color="#000000">fan</font> <font color="#000000">2</font>
+        <font color="#5e6d03">#define</font> <font color="#000000">bulb</font> <font color="#000000">3</font>
+        
+        <font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+         &nbsp;<font color="#434f54">&#47;&#47; put your setup code here, to run once:</font>
+         &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font>
+         &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">fan</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+         &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">bulb</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+        <font color="#000000">}</font>
+        
+        <font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+         &nbsp;<font color="#434f54">&#47;&#47; put your main code here, to run repeatedly:</font>
+         &nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">available</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#434f54">==</font> <font color="#000000">1</font><font color="#000000">)</font>
+         &nbsp;<font color="#000000">{</font>
+         &nbsp;&nbsp;&nbsp;<font color="#00979c">String</font> <font color="#000000">val</font> <font color="#434f54">=</font> <b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">readString</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+         &nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">val</font><font color="#000000">)</font><font color="#000000">;</font>
+         &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">val</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;bulb to off&#34;</font><font color="#000000">)</font>
+         &nbsp;&nbsp;&nbsp;<font color="#000000">{</font>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">fan</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+         &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+         &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">val</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;bulb to on&#34;</font><font color="#000000">)</font>
+         &nbsp;&nbsp;&nbsp;<font color="#000000">{</font>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">fan</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+         &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+         &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">val</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;bulb off&#34;</font><font color="#000000">)</font>
+         &nbsp;&nbsp;&nbsp;<font color="#000000">{</font>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">bulb</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+         &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+         &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">val</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;bulb on&#34;</font><font color="#000000">)</font>
+         &nbsp;&nbsp;&nbsp;<font color="#000000">{</font>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">bulb</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+         &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+         &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">val</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;all of&#34;</font><font color="#000000">)</font>
+         &nbsp;&nbsp;&nbsp;<font color="#000000">{</font>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">fan</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">bulb</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+         &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+         &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">val</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;all on&#34;</font><font color="#000000">)</font>
+         &nbsp;&nbsp;&nbsp;<font color="#000000">{</font>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">bulb</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">fan</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+         &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+         &nbsp;<font color="#000000">}</font>
+        <font color="#000000">}</font>
+        
+        
+        </pre><br>
+    <div class="h">after you upload the program you are ready to use the voice controlled home automation</div><br><br>
+    <div class="t">thank you</div><br><br>
+    <p align="center"><a href="https://www.youtube.com/channel/UCkdZZAKXrLijL6Cjfq6j4Ww"><img src="E:\harshak\pictures\Screenshots\harshk.png" height="377" width="600"></a></p>
+</body>
+</html>

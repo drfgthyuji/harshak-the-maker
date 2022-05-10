@@ -1,0 +1,233 @@
+<html>
+<head>
+<title>
+</title>
+</head>
+<body background="https://img.freepik.com/free-vector/yellow-background-with-halftone-lines-design_1017-30148.jpg?size=626&ext=jpg">
+    <link rel="stylesheet" href="wifi.css">
+    <!--add icon library-->
+<button class="btn"><a href="E:\harshak\desktop\website page\m\m.html"><i class="fa fa-home" aria-hidden="true"></i><font color="white">home</font></button></a></button>
+    <div class="har">harshak the maker</div><br><br><br>
+    <div class="how"><u>how to make a wifi car using nodemcu</u></div><br>
+<div class="yo">hello,guys in this project i have made a wifi car using nodemcu</div><br>
+<div class="h"><b>materials used:-</b></div>
+    <table border="1">
+        <tr>
+            <th>component name</th>
+            <th>quantity</th>
+            <th>price</th>
+        </tr>
+        <tr>
+        <td><a href="https://www.electronicscomp.com/nodemcu-esp8266-wifi-development-board?gclid=Cj0KCQjw3IqSBhCoARIsAMBkTb0ymAXDjTnwVDHKhYvTqO9eyDqA8lkIGZucmRYZ52ggV--aWH79ETgaAkzoEALw_wcB">nodemcu</a></td>
+        <td>01</td>
+        <td>₹209</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.electronicscomp.com/l298-2amp-motor-driver-module-with-pwm-control-india?gclid=Cj0KCQjw3IqSBhCoARIsAMBkTb2NpvMsHaniRGbuI81ZC_fTWGpV8JvD-Dw_LugTmpUM-lj9eeQTRCMaAi7nEALw_wcB">l298 motor driver module</a></td>
+            <td>01</td>
+            <td>₹106</td>
+        </tr>
+        <tr>
+            <td><a href="https://robotbanao.com/products/2-x-duel-shaft-bo-motor-with-wheel-black-and-yellow-2-sets-combo?utm_term=&utm_campaign=Sales-Performance+Max-1&utm_source=adwords&utm_medium=ppc&hsa_acc=5120227335&hsa_cam=16569189508&hsa_grp=&hsa_ad=&hsa_src=x&hsa_tgt=&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQjw3IqSBhCoARIsAMBkTb2xKPPoH0XAuabzAzqFSXVbH2HufzMbUkIfSrjkZB0Wh-n6sFSm16kaAqW3EALw_wcB">gear motor with wheels</a></td>
+            <td>02</td>
+            <td>₹200</td>
+        </tr>
+        <tr>
+        <td><a href="https://quartzcomponents.com/products/18650-li-ion-2000mah-rechargeable-battery?variant=38001341497528&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&utm_campaign=gs-2020-12-29&utm_source=google&utm_medium=smart_campaign&gclid=Cj0KCQjw3IqSBhCoARIsAMBkTb2SMZiOJDD86BxLKubUe17zbkvy7VWm0Qj36X1twHgUI9lp0gW--y8aAr86EALw_wcB">3.7v lithium battery</a></td>
+        <td>02</td>
+        <td>₹116</td>
+        </tr>
+        </table><br><br>
+ so,guys these the parts that i have used to make this car<br>
+ <div class="a">now the first step is to do the connections the wiring diagram is given below</div><br><br>
+<img src="https://circuitbest.com/wp-content/uploads/2020/06/Wifi-controlled-car.jpg" height="377" width="600" class="center"> <br><br>
+<div class="a">after the connection now to the programming part before uploadinthe programm you include the following libraries<br>
+1.<a href="https://github.com/ekstrand/ESP8266wifi">esp8266wifi.h</a><br>
+2.<a href="https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/src/WiFiClient.h">wificlient.h</a><br>
+3.<a href="https://github.com/esp8266/ESPWebServer">esp8266webserver.h</a><br>
+after you include the libraries now upload the programm the programm is given below:-
+</div><br>
+<pre>
+    <font color="#5e6d03">#define</font> <font color="#000000">ENA</font> &nbsp;&nbsp;<font color="#000000">14</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; Enable&#47;speed motors Right &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPIO14(D5)</font>
+    <font color="#5e6d03">#define</font> <font color="#000000">ENB</font> &nbsp;&nbsp;<font color="#000000">12</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; Enable&#47;speed motors Left &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPIO12(D6)</font>
+    <font color="#5e6d03">#define</font> <font color="#000000">IN_1</font> &nbsp;<font color="#000000">15</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; L298N in1 motors Right &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPIO15(D8)</font>
+    <font color="#5e6d03">#define</font> <font color="#000000">IN_2</font> &nbsp;<font color="#000000">13</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; L298N in2 motors Right &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPIO13(D7)</font>
+    <font color="#5e6d03">#define</font> <font color="#000000">IN_3</font> &nbsp;<font color="#000000">2</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; L298N in3 motors Left &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPIO2(D4)</font>
+    <font color="#5e6d03">#define</font> <font color="#000000">IN_4</font> &nbsp;<font color="#000000">0</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; L298N in4 motors Left &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPIO0(D3)</font>
+    
+    <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#000000">ESP8266WiFi</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+    <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#d35400">WiFiClient</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font> 
+    <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#000000">ESP8266WebServer</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+    
+    <font color="#00979c">String</font> <font color="#000000">command</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;String to store app command state.</font>
+    <font color="#00979c">int</font> <font color="#000000">speedCar</font> <font color="#434f54">=</font> <font color="#000000">800</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; 400 - 1023.</font>
+    <font color="#00979c">int</font> <font color="#000000">speed_Coeff</font> <font color="#434f54">=</font> <font color="#000000">3</font><font color="#000000">;</font>
+    
+    <font color="#00979c">const</font> <font color="#00979c">char</font><font color="#434f54">*</font> <font color="#000000">ssid</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;NodeMCU Car&#34;</font><font color="#000000">;</font>
+    <font color="#000000">ESP8266WebServer</font> <font color="#000000">server</font><font color="#000000">(</font><font color="#000000">80</font><font color="#000000">)</font><font color="#000000">;</font>
+    
+    <font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+     
+     <font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">ENA</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+     <font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">ENB</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;
+     <font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">IN_1</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+     <font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">IN_2</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+     <font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">IN_3</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+     <font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">IN_4</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font> 
+     &nbsp;
+     &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">115200</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;
+    <font color="#434f54">&#47;&#47; Connecting WiFi</font>
+    
+     &nbsp;<b><font color="#d35400">WiFi</font></b><font color="#434f54">.</font><font color="#000000">mode</font><font color="#000000">(</font><font color="#000000">WIFI_AP</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<b><font color="#d35400">WiFi</font></b><font color="#434f54">.</font><font color="#000000">softAP</font><font color="#000000">(</font><font color="#000000">ssid</font><font color="#000000">)</font><font color="#000000">;</font>
+    
+     &nbsp;<b><font color="#d35400">IPAddress</font></b> <font color="#000000">myIP</font> <font color="#434f54">=</font> <b><font color="#d35400">WiFi</font></b><font color="#434f54">.</font><font color="#000000">softAPIP</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;AP IP address: &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">myIP</font><font color="#000000">)</font><font color="#000000">;</font>
+     
+     <font color="#434f54">&#47;&#47; Starting WEB-server </font>
+     &nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">server</font><font color="#434f54">.</font><font color="#000000">on</font> <font color="#000000">(</font> <font color="#005c5f">&#34;&#47;&#34;</font><font color="#434f54">,</font> <font color="#000000">HTTP_handleRoot</font> <font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">server</font><font color="#434f54">.</font><font color="#000000">onNotFound</font> <font color="#000000">(</font> <font color="#000000">HTTP_handleRoot</font> <font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">server</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;
+    <font color="#000000">}</font>
+    
+    <font color="#00979c">void</font> <font color="#000000">goAhead</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font> 
+    
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_1</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_2</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ENA</font><font color="#434f54">,</font> <font color="#000000">speedCar</font><font color="#000000">)</font><font color="#000000">;</font>
+    
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_3</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_4</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ENB</font><font color="#434f54">,</font> <font color="#000000">speedCar</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">}</font>
+    
+    <font color="#00979c">void</font> <font color="#000000">goBack</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font> 
+    
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_1</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_2</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ENA</font><font color="#434f54">,</font> <font color="#000000">speedCar</font><font color="#000000">)</font><font color="#000000">;</font>
+    
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_3</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_4</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ENB</font><font color="#434f54">,</font> <font color="#000000">speedCar</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">}</font>
+    
+    <font color="#00979c">void</font> <font color="#000000">goRight</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font> 
+    
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_1</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_2</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ENA</font><font color="#434f54">,</font> <font color="#000000">speedCar</font><font color="#000000">)</font><font color="#000000">;</font>
+    
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_3</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_4</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ENB</font><font color="#434f54">,</font> <font color="#000000">speedCar</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">}</font>
+    
+    <font color="#00979c">void</font> <font color="#000000">goLeft</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+    
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_1</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_2</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ENA</font><font color="#434f54">,</font> <font color="#000000">speedCar</font><font color="#000000">)</font><font color="#000000">;</font>
+    
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_3</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_4</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ENB</font><font color="#434f54">,</font> <font color="#000000">speedCar</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">}</font>
+    
+    <font color="#00979c">void</font> <font color="#000000">goAheadRight</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_1</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_2</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ENA</font><font color="#434f54">,</font> <font color="#000000">speedCar</font><font color="#434f54">&#47;</font><font color="#000000">speed_Coeff</font><font color="#000000">)</font><font color="#000000">;</font>
+     
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_3</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_4</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ENB</font><font color="#434f54">,</font> <font color="#000000">speedCar</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;<font color="#000000">}</font>
+    
+    <font color="#00979c">void</font> <font color="#000000">goAheadLeft</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_1</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_2</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ENA</font><font color="#434f54">,</font> <font color="#000000">speedCar</font><font color="#000000">)</font><font color="#000000">;</font>
+    
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_3</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_4</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ENB</font><font color="#434f54">,</font> <font color="#000000">speedCar</font><font color="#434f54">&#47;</font><font color="#000000">speed_Coeff</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">}</font>
+    
+    <font color="#00979c">void</font> <font color="#000000">goBackRight</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font> 
+    
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_1</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_2</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ENA</font><font color="#434f54">,</font> <font color="#000000">speedCar</font><font color="#434f54">&#47;</font><font color="#000000">speed_Coeff</font><font color="#000000">)</font><font color="#000000">;</font>
+    
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_3</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_4</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ENB</font><font color="#434f54">,</font> <font color="#000000">speedCar</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">}</font>
+    
+    <font color="#00979c">void</font> <font color="#000000">goBackLeft</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font> 
+    
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_1</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_2</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ENA</font><font color="#434f54">,</font> <font color="#000000">speedCar</font><font color="#000000">)</font><font color="#000000">;</font>
+    
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_3</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_4</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ENB</font><font color="#434f54">,</font> <font color="#000000">speedCar</font><font color="#434f54">&#47;</font><font color="#000000">speed_Coeff</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">}</font>
+    
+    <font color="#00979c">void</font> <font color="#000000">stopRobot</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font> &nbsp;
+    
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_1</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_2</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ENA</font><font color="#434f54">,</font> <font color="#000000">speedCar</font><font color="#000000">)</font><font color="#000000">;</font>
+    
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_3</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">IN_4</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ENB</font><font color="#434f54">,</font> <font color="#000000">speedCar</font><font color="#000000">)</font><font color="#000000">;</font>
+     <font color="#000000">}</font>
+    
+    <font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+     &nbsp;&nbsp;&nbsp;<font color="#000000">server</font><font color="#434f54">.</font><font color="#000000">handleClient</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">command</font> <font color="#434f54">=</font> <font color="#000000">server</font><font color="#434f54">.</font><font color="#000000">arg</font><font color="#000000">(</font><font color="#005c5f">&#34;State&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;F&#34;</font><font color="#000000">)</font> <font color="#000000">goAhead</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;B&#34;</font><font color="#000000">)</font> <font color="#000000">goBack</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;L&#34;</font><font color="#000000">)</font> <font color="#000000">goLeft</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;R&#34;</font><font color="#000000">)</font> <font color="#000000">goRight</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;I&#34;</font><font color="#000000">)</font> <font color="#000000">goAheadRight</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;G&#34;</font><font color="#000000">)</font> <font color="#000000">goAheadLeft</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;J&#34;</font><font color="#000000">)</font> <font color="#000000">goBackRight</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;H&#34;</font><font color="#000000">)</font> <font color="#000000">goBackLeft</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;0&#34;</font><font color="#000000">)</font> <font color="#000000">speedCar</font> <font color="#434f54">=</font> <font color="#000000">400</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;1&#34;</font><font color="#000000">)</font> <font color="#000000">speedCar</font> <font color="#434f54">=</font> <font color="#000000">470</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;2&#34;</font><font color="#000000">)</font> <font color="#000000">speedCar</font> <font color="#434f54">=</font> <font color="#000000">540</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;3&#34;</font><font color="#000000">)</font> <font color="#000000">speedCar</font> <font color="#434f54">=</font> <font color="#000000">610</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;4&#34;</font><font color="#000000">)</font> <font color="#000000">speedCar</font> <font color="#434f54">=</font> <font color="#000000">680</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;5&#34;</font><font color="#000000">)</font> <font color="#000000">speedCar</font> <font color="#434f54">=</font> <font color="#000000">750</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;6&#34;</font><font color="#000000">)</font> <font color="#000000">speedCar</font> <font color="#434f54">=</font> <font color="#000000">820</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;7&#34;</font><font color="#000000">)</font> <font color="#000000">speedCar</font> <font color="#434f54">=</font> <font color="#000000">890</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;8&#34;</font><font color="#000000">)</font> <font color="#000000">speedCar</font> <font color="#434f54">=</font> <font color="#000000">960</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;9&#34;</font><font color="#000000">)</font> <font color="#000000">speedCar</font> <font color="#434f54">=</font> <font color="#000000">1023</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">command</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;S&#34;</font><font color="#000000">)</font> <font color="#000000">stopRobot</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+    <font color="#000000">}</font>
+    
+    <font color="#00979c">void</font> <font color="#000000">HTTP_handleRoot</font><font color="#000000">(</font><font color="#00979c">void</font><font color="#000000">)</font> <font color="#000000">{</font>
+    
+    <font color="#5e6d03">if</font><font color="#000000">(</font> <font color="#000000">server</font><font color="#434f54">.</font><font color="#000000">hasArg</font><font color="#000000">(</font><font color="#005c5f">&#34;State&#34;</font><font color="#000000">)</font> <font color="#000000">)</font><font color="#000000">{</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">server</font><font color="#434f54">.</font><font color="#000000">arg</font><font color="#000000">(</font><font color="#005c5f">&#34;State&#34;</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">}</font>
+     &nbsp;<font color="#000000">server</font><font color="#434f54">.</font><font color="#d35400">send</font> <font color="#000000">(</font> <font color="#000000">200</font><font color="#434f54">,</font> <font color="#005c5f">&#34;text&#47;html&#34;</font><font color="#434f54">,</font> <font color="#005c5f">&#34;&#34;</font> <font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+    <font color="#000000">}</font>
+    
+    </pre><br>
+    after you upload the programm your care is ready to use.<br>
+<div class="thank"></div><p align="center"><b>thank you</b></div><br><br>
+<p align="center"><a href="https://www.youtube.com/channel/UCkdZZAKXrLijL6Cjfq6j4Ww"><img src="E:\harshak\pictures\Screenshots\harshk.png" height="377" width="600"></a>
+</body>
+</html>

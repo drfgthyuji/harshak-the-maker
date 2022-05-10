@@ -1,0 +1,12 @@
+.btn:hover{
+    background-color: aqua;
+    }
+    .btn{
+       
+            background-color: blue;
+            padding: 12px 16px;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+    }

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>harshak</title>
+</head>
+<body background="https://images.pexels.com/photos/131634/pexels-photo-131634.jpeg?cs=srgb&dl=pexels-fwstudio-131634.jpg&fm=jpg">
+    <link rel="stylesheet" href="water.css">
+        <!--add icon library-->
+<button class="btn"><a href="E:\harshak\desktop\website page\m\m.html"><i class="fa fa-home" aria-hidden="true"></i>home</button></a></button>
+<div class="yes">harshak the maker</div><br><br>
+<div class="y"><u><b>how to make a smart water level indication system using nodemcu</b></u></div><br>
+<div class="s"><b>hello guys in this project i have made smart water level indication system using nodemcu</b><br><br>
+<b>the metarial used to make this project are:-</b></div> <br>
+<table border="1" bordercolor="black" bgcolor="white">
+   <b> <tr>
+        <th>component name</th>
+        <th>quantity</th>
+        <th>price</th>
+    </tr>
+    <tr>
+        <td><a href="https://www.electronicscomp.com/nodemcu-esp8266-wifi-development-board?gclid=Cj0KCQjwxtSSBhDYARIsAEn0thS2jURU7i3rDI4TpwpEkJ95c5N4VR0W00B2ykSw44UywSam0MCi46MaAqaGEALw_wcB">nodemcu</a></td>
+        <td>01</td>
+        <td>₹209</td>
+    </tr>
+    <tr>
+        <td><a href="https://www.electronicscomp.com/1-channel-5v-relay-module-without-optocoupler?gclid=Cj0KCQjwxtSSBhDYARIsAEn0thRyGoxJlDkIAdos-DN5UmItm2qe8grEZbcqiXYswxBXk0LfSYddn5MaAl9nEALw_wcB">5v relay module</a></td>
+        <td>01</td>
+        <td>₹50</td>
+    </tr>
+    <tr>
+        <td><a href="https://www.amazon.in/Circuit-Supply-Stepdown-Converter-Module/dp/B07JGK66TB">ac to dc converter 5v</a></td>
+        <td>01</td>
+        <td>₹77</td>
+    </tr>
+    <tr>
+        <td><a href="https://www.electronicscomp.com/ultrasonic-distance-sensor-module-hc-sr04-india?gclid=Cj0KCQjwxtSSBhDYARIsAEn0thTlAiZLxCMUxIYFY_cqKFuupw2d6sM4dzcT2g1bY239meBUiJYXWacaArS6EALw_wcB">ultrasonic sensor</a></td>
+        <td>01</td>
+        <td>₹59</td>
+    </tr>
+    <tr>
+        <td><a href="https://quartzcomponents.com/products/9v-battery-hi-watt?variant=31898089291911&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&utm_campaign=gs-2020-12-29&utm_source=google&utm_medium=smart_campaign&gclid=Cj0KCQjwxtSSBhDYARIsAEn0thQGeB7o7Asaf3Y_OMlTfGQNt2EebuCOYzfbp6scL88y6t6NA8DFytMaAiyeEALw_wcB">9v battery</a></td>
+        <td>01</td>
+        <td>₹18</td>
+    </tr>
+    <tr>
+        <td><a href="https://www.electroncomponents.com/DC-Toy-Moto-Mini-T1?gclid=Cj0KCQjwxtSSBhDYARIsAEn0thRFzMIPUZ-CXL86tzxuil63IT455uLHKBlhpmEl7OXkZrCYWvhiAdsaAuH-EALw_wcB">9v motor</a></td>
+        <td>01</td>
+        <td>₹15</td>
+    </tr></b>
+</table><br><br>
+<div class="s"><b>so,guys these are the materials that i have you used to make this project <br><br>
+after you have the materials done you can make the frame and assemble the component and make its wiring the diagram is given below:-</b><br><br>
+<p align="center"><img src="E:\harshak\pictures\Screenshots\screenshot.png" height="377" width="600"><br><br>
+<p align="left"><b>after you do its wiring you can make its programming before uploading the code include the following libraries :-</b>
+<ol>
+    <li><a href="https://www.arduinolibraries.info/libraries/liquid-crystal-i2-c">LiquidCrystal_I2C.h</a></li>
+    <li><a href="https://github.com/PaulStoffregen/Wire">Wire.h</a></li>
+    <li><a href="https://github.com/ekstrand/ESP8266wifi">ESP8266WiFi.h</a></li>
+    <li><a href="https://github.com/blynkkk/blynk-library">BlynkSimpleEsp8266.h</a></li>
+</ol><br><br>
+<b>after you include the libraries you may copy paste the code given below in the arduino ide and upload it to nodemcu:-</b><br><br></div>
+<b><pre>
+    <font color="#95a5a6">&#47;*harshak the maker</font>
+    <font color="#95a5a6"> * water level indication project</font>
+    <font color="#95a5a6"> * </font><u><font color="#95a5a6">https:&#47;&#47;www.youtube.com&#47;channel&#47;UCkdZZAKXrLijL6Cjfq6j4Ww</font></u><font color="#95a5a6"></font>
+    <font color="#95a5a6"> *&#47;</font>
+     
+    <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">LiquidCrystal_I2C</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+    <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#d35400">Wire</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+    <font color="#5e6d03">#define</font> <font color="#d35400">BLYNK_PRINT</font> <b><font color="#d35400">Serial</font></b>
+    <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#d35400">ESP8266WiFi</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+    <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#000000">BlynkSimpleEsp8266</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+    <b><font color="#d35400">LiquidCrystal_I2C</font></b> <font color="#000000">lcd</font><font color="#000000">(</font><font color="#000000">0x27</font><font color="#434f54">,</font> <font color="#000000">16</font><font color="#434f54">,</font> <font color="#000000">2</font><font color="#000000">)</font><font color="#000000">;</font>
+     
+    <font color="#00979c">char</font> <font color="#000000">auth</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;&#34;</font><font color="#000000">;</font><font color="#434f54">&#47;&#47;Enter your Auth token</font>
+    <font color="#00979c">char</font> <font color="#000000">ssid</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;&#34;</font><font color="#000000">;</font><font color="#434f54">&#47;&#47;Enter your WIFI name</font>
+    <font color="#00979c">char</font> <font color="#000000">pass</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;&#34;</font><font color="#000000">;</font><font color="#434f54">&#47;&#47;Enter your WIFI password</font>
+     
+    <b><font color="#d35400">BlynkTimer</font></b> <font color="#000000">timer</font><font color="#000000">;</font>
+    <font color="#00979c">bool</font> <font color="#000000">pinValue</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font>
+     
+    <font color="#5e6d03">#define</font> <font color="#000000">trig</font> <font color="#000000">D3</font>
+    <font color="#5e6d03">#define</font> <font color="#000000">echo</font> <font color="#000000">D4</font>
+    <font color="#5e6d03">#define</font> <font color="#000000">relay</font> <font color="#000000">D5</font>
+     
+    <font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+     &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">trig</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">echo</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">relay</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">Wire</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">D2</font><font color="#434f54">,</font> <font color="#000000">D1</font><font color="#000000">)</font><font color="#000000">;</font>
+    
+     &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">backlight</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<b><font color="#d35400">Blynk</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">auth</font><font color="#434f54">,</font> <font color="#000000">ssid</font><font color="#434f54">,</font> <font color="#000000">pass</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">timer</font><font color="#434f54">.</font><font color="#000000">setInterval</font><font color="#000000">(</font><font color="#000000">10L</font><font color="#434f54">,</font> <font color="#000000">Wlevel</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">relay</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+    <font color="#000000">}</font>
+     
+    <font color="#d35400">BLYNK_WRITE</font><font color="#000000">(</font><font color="#00979c">V0</font><font color="#000000">)</font> <font color="#000000">{</font>
+     &nbsp;<font color="#000000">pinValue</font> <font color="#434f54">=</font> <font color="#000000">param</font><font color="#434f54">.</font><font color="#000000">asInt</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+    <font color="#000000">}</font>
+     
+    <font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+     &nbsp;<b><font color="#d35400">Blynk</font></b><font color="#434f54">.</font><font color="#d35400">run</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">timer</font><font color="#434f54">.</font><font color="#d35400">run</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+    <font color="#000000">}</font>
+     
+    <font color="#00979c">void</font> <font color="#000000">Wlevel</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+     &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">pinValue</font> <font color="#434f54">==</font> <font color="#000000">1</font><font color="#000000">)</font> <font color="#000000">{</font>
+     &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">relay</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Motor is ON &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">}</font> <font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">pinValue</font> <font color="#434f54">==</font> <font color="#000000">0</font><font color="#000000">)</font> <font color="#000000">{</font>
+     &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">relay</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Motor is OFF&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">}</font>
+     
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">trig</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">delayMicroseconds</font><font color="#000000">(</font><font color="#000000">4</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">trig</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">delayMicroseconds</font><font color="#000000">(</font><font color="#000000">10</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">trig</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#00979c">long</font> <font color="#000000">t</font> <font color="#434f54">=</font> <font color="#d35400">pulseIn</font><font color="#000000">(</font><font color="#000000">echo</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#00979c">long</font> <font color="#000000">cm</font> <font color="#434f54">=</font> <font color="#000000">t</font> <font color="#434f54">&#47;</font> <font color="#000000">29</font> <font color="#434f54">&#47;</font> <font color="#000000">2</font><font color="#000000">;</font>
+     
+     &nbsp;<b><font color="#d35400">Blynk</font></b><font color="#434f54">.</font><font color="#d35400">virtualWrite</font><font color="#000000">(</font><font color="#00979c">V1</font><font color="#434f54">,</font> <font color="#000000">cm</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">cm</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Water Level: &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">cm</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &nbsp;&nbsp;&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+    <font color="#000000">}</font>
+    
+    </pre></b>
+<div class="s"><b>after you upload the programm the project is ready to use <br>
+this way you can build this project and save water from overflowing</b><br><br>
+<p align="center"><b>thank you</b></p></div>
+<p align="center"><a href="https://www.youtube.com/channel/UCkdZZAKXrLijL6Cjfq6j4Ww"><img src="E:\harshak\pictures\Screenshots\harshk.png" height="377" width="600"></a></p>
+</body>
+</html>

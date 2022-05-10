@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="robo.css">
+<title>
+    how to make a obstacle avoiding robot using car using arduino uno
+</title>
+</head>
+<button class="btn"><a href="E:\harshak\desktop\website page\m\m.html"><i class="fa fa-home" aria-hidden="true"></i>home</button></a></button><br>
+<body background="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-wj6fBs4NG0xaZ3eJ1XTgrFzPSpKctgYu4Q&usqp=CAU">
+    
+ <div class="head"><b>harshak the maker</b></div><br><br><br>
+ <div class="he"><b><u>how to make a obstacle avoiding robot using arduino:-</u></b></div><br><br>
+<font face="corbel">hello,guy in this project i have a obostacle avoiding robot using arduino uno</font><br><br>
+<b>material used:-</b><br>
+<table border="1">
+    <tr>
+        <th>electronic components</th>
+        <th>quantity</th>
+        <th>price</th>          
+    </tr>
+    <tr>
+        <td><a href="https://www.electronicscomp.com/arduino-uno-r3-compatible-best-price-india?gclid=CjwKCAiAsYyRBhACEiwAkJFKonB_6ZhRkHTWE7LBkCqrdVSvAZlc93gQ-6pKsl_K4pkmXlMjkwk_exoC48AQAvD_BwE">arduino uno</a></td>
+        <td>1</td>
+        <td>₹550</td>
+    </tr>
+    <tr>
+        <td><a href="https://robu.in/product/l298n-2a-based-motor-driver-module-good-quality/?gclid=CjwKCAiAsYyRBhACEiwAkJFKoj6MVNUleSGR9IzkBe0KDvFUwnQ7uexmzvGUY8o3SyzpRbIFu_AbgRoCSSIQAvD_BwE">l298n motor driver</a></td>
+        <td>1</td>
+        <td>₹129</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.robotbanao.com/products/imported-dc-bo-motor-12v-dual-shaft-for-smart-car-robot-gear-for-arduino?gclid=CjwKCAiAsYyRBhACEiwAkJFKomI3fZP_GREWb7jca99gHinzLZ4kgKV0mpbUdt_HFheokNrYjPmnLRoC-b8QAvD_BwE">gear motor</a></td>
+            <td>4</td>
+            <td>₹212</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.electronicscomp.com/towerpro-sg90-9gm-micro-servo-motor?gclid=CjwKCAiAsYyRBhACEiwAkJFKogBL4RcAYuqsmwAgietXfnrhTrpeEuIjxFpZ63jBKViZZdx3eQbmJBoCHYcQAvD_BwE">servo motor</a></td>
+            <td>1</td>
+            <td>₹99</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.electronicscomp.com/ultrasonic-distance-sensor-module-hc-sr04-india?gclid=CjwKCAiAsYyRBhACEiwAkJFKojibe9vPdgnQflsCIbOqR1ZJcHaHrobu87w58DD-QR0qVHxAXSKRrhoCdwMQAvD_BwE">ultrasonic sensor</a></td>
+            <td>1</td>
+            <td>₹59</td>
+        </tr>
+        <tr>
+            <td><a href="https://quartzcomponents.com/products/18650-li-ion-1800mah-rechargeable-battery?variant=38001341497528&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&utm_campaign=gs-2020-12-29&utm_source=google&utm_medium=smart_campaign&gclid=CjwKCAiAsYyRBhACEiwAkJFKoi2pJjF2CKuCIPk3Ilbp9dkUcAAFuuKfezPaeWK7sh_RG2cqFyQE7hoC-l4QAvD_BwE">3.7v lithium ion battery</a></td>
+            <td>2</td>
+            <td>₹58</td>
+        </tr>
+</table><br>
+material used for chasis are :-<br>
+<ol type="1">
+    <li>mdf board</li>
+    <li>cardboard</li>
+    <li>wheels</li>
+</ol><br><br>
+after you have all the parts assemble the chasis and do its wiring its wiring is given below:-
+<p align="center"><img src="data:image/jpeg;base64,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"height="377" width="600">
+<br><br><p align="left">so now you have complete the hardware part now come to software part<br>
+to upload the program to the arduino you must include these libraries they as folows to download these just click on them
+<br><ol type="1">
+    <li><a href="https://github.com/arduino-libraries/Servo">servo.h library</a></li>
+    <li><a href="https://github.com/eliteio/Arduino_New_Ping">newping library</a></li>
+</ol><br>
+after include the library just copy paste this code given below:-
+<pre>
+    <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">Servo</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;Servo motor library. This is standard library</font>
+    <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">NewPing</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;Ultrasonic sensor function library. You must install this library</font>
+    
+    <font color="#434f54">&#47;&#47;our L298N control pins</font>
+    <font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">LeftMotorForward</font> <font color="#434f54">=</font> <font color="#000000">7</font><font color="#000000">;</font>
+    <font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">LeftMotorBackward</font> <font color="#434f54">=</font> <font color="#000000">6</font><font color="#000000">;</font>
+    <font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">RightMotorForward</font> <font color="#434f54">=</font> <font color="#000000">4</font><font color="#000000">;</font>
+    <font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">RightMotorBackward</font> <font color="#434f54">=</font> <font color="#000000">5</font><font color="#000000">;</font>
+    
+    <font color="#434f54">&#47;&#47;sensor pins</font>
+    <font color="#5e6d03">#define</font> <font color="#000000">trig_pin</font> <font color="#000000">A1</font> <font color="#434f54">&#47;&#47;analog input 1</font>
+    <font color="#5e6d03">#define</font> <font color="#000000">echo_pin</font> <font color="#000000">A2</font> <font color="#434f54">&#47;&#47;analog input 2</font>
+    
+    <font color="#5e6d03">#define</font> <font color="#000000">maximum_distance</font> <font color="#000000">200</font>
+    <font color="#00979c">boolean</font> <font color="#000000">goesForward</font> <font color="#434f54">=</font> <font color="#00979c">false</font><font color="#000000">;</font>
+    <font color="#00979c">int</font> <font color="#000000">distance</font> <font color="#434f54">=</font> <font color="#000000">100</font><font color="#000000">;</font>
+    
+    <b><font color="#d35400">NewPing</font></b> <font color="#000000">sonar</font><font color="#000000">(</font><font color="#000000">trig_pin</font><font color="#434f54">,</font> <font color="#000000">echo_pin</font><font color="#434f54">,</font> <font color="#000000">maximum_distance</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;sensor function</font>
+    <b><font color="#d35400">Servo</font></b> <font color="#000000">servo_motor</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;our servo name</font>
+    
+    
+    <font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+    
+     &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">RightMotorForward</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">LeftMotorForward</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">LeftMotorBackward</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">RightMotorBackward</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;
+     &nbsp;<font color="#000000">servo_motor</font><font color="#434f54">.</font><font color="#d35400">attach</font><font color="#000000">(</font><font color="#000000">10</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;our servo pin</font>
+    
+     &nbsp;<font color="#000000">servo_motor</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#000000">115</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">2000</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">distance</font> <font color="#434f54">=</font> <font color="#000000">readPing</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">100</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">distance</font> <font color="#434f54">=</font> <font color="#000000">readPing</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">100</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">distance</font> <font color="#434f54">=</font> <font color="#000000">readPing</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">100</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">distance</font> <font color="#434f54">=</font> <font color="#000000">readPing</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">100</font><font color="#000000">)</font><font color="#000000">;</font>
+    <font color="#000000">}</font>
+    
+    <font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+    
+     &nbsp;<font color="#00979c">int</font> <font color="#000000">distanceRight</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font>
+     &nbsp;<font color="#00979c">int</font> <font color="#000000">distanceLeft</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">50</font><font color="#000000">)</font><font color="#000000">;</font>
+    
+     &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">distance</font> <font color="#434f54">&lt;=</font> <font color="#000000">20</font><font color="#000000">)</font><font color="#000000">{</font>
+     &nbsp;&nbsp;&nbsp;<font color="#000000">moveStop</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">300</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;<font color="#000000">moveBackward</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">400</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;<font color="#000000">moveStop</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">300</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;<font color="#000000">distanceRight</font> <font color="#434f54">=</font> <font color="#000000">lookRight</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">300</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;<font color="#000000">distanceLeft</font> <font color="#434f54">=</font> <font color="#000000">lookLeft</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">300</font><font color="#000000">)</font><font color="#000000">;</font>
+    
+     &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">distance</font> <font color="#434f54">&gt;=</font> <font color="#000000">distanceLeft</font><font color="#000000">)</font><font color="#000000">{</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">turnRight</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">moveStop</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+     &nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font><font color="#000000">{</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">turnLeft</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">moveStop</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+     &nbsp;<font color="#000000">}</font>
+     &nbsp;<font color="#5e6d03">else</font><font color="#000000">{</font>
+     &nbsp;&nbsp;&nbsp;<font color="#000000">moveForward</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> 
+     &nbsp;<font color="#000000">}</font>
+     &nbsp;&nbsp;&nbsp;<font color="#000000">distance</font> <font color="#434f54">=</font> <font color="#000000">readPing</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+    <font color="#000000">}</font>
+    
+    <font color="#00979c">int</font> <font color="#000000">lookRight</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font> &nbsp;
+     &nbsp;<font color="#000000">servo_motor</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#000000">50</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">500</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#00979c">int</font> <font color="#000000">distance</font> <font color="#434f54">=</font> <font color="#000000">readPing</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">100</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">servo_motor</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#000000">115</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#5e6d03">return</font> <font color="#000000">distance</font><font color="#000000">;</font>
+    <font color="#000000">}</font>
+    
+    <font color="#00979c">int</font> <font color="#000000">lookLeft</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+     &nbsp;<font color="#000000">servo_motor</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#000000">170</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">500</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#00979c">int</font> <font color="#000000">distance</font> <font color="#434f54">=</font> <font color="#000000">readPing</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">100</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">servo_motor</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#000000">115</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#5e6d03">return</font> <font color="#000000">distance</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">100</font><font color="#000000">)</font><font color="#000000">;</font>
+    <font color="#000000">}</font>
+    
+    <font color="#00979c">int</font> <font color="#000000">readPing</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+     &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">70</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#00979c">int</font> <font color="#000000">cm</font> <font color="#434f54">=</font> <font color="#000000">sonar</font><font color="#434f54">.</font><font color="#d35400">ping_cm</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">cm</font><font color="#434f54">==</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">{</font>
+     &nbsp;&nbsp;&nbsp;<font color="#000000">cm</font><font color="#434f54">=</font><font color="#000000">250</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">}</font>
+     &nbsp;<font color="#5e6d03">return</font> <font color="#000000">cm</font><font color="#000000">;</font>
+    <font color="#000000">}</font>
+    
+    <font color="#00979c">void</font> <font color="#000000">moveStop</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+     &nbsp;
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">RightMotorForward</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">LeftMotorForward</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">RightMotorBackward</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">LeftMotorBackward</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+    <font color="#000000">}</font>
+    
+    <font color="#00979c">void</font> <font color="#000000">moveForward</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+    
+     &nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#434f54">!</font><font color="#000000">goesForward</font><font color="#000000">)</font><font color="#000000">{</font>
+    
+     &nbsp;&nbsp;&nbsp;<font color="#000000">goesForward</font><font color="#434f54">=</font><font color="#00979c">true</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;
+     &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">LeftMotorForward</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">RightMotorForward</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;
+     &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">LeftMotorBackward</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">RightMotorBackward</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font> 
+     &nbsp;<font color="#000000">}</font>
+    <font color="#000000">}</font>
+    
+    <font color="#00979c">void</font> <font color="#000000">moveBackward</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+    
+     &nbsp;<font color="#000000">goesForward</font><font color="#434f54">=</font><font color="#00979c">false</font><font color="#000000">;</font>
+    
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">LeftMotorBackward</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">RightMotorBackward</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">LeftMotorForward</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">RightMotorForward</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;
+    <font color="#000000">}</font>
+    
+    <font color="#00979c">void</font> <font color="#000000">turnRight</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+    
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">LeftMotorForward</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">RightMotorBackward</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">LeftMotorBackward</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">RightMotorForward</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;
+     &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">500</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">LeftMotorForward</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">RightMotorForward</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">LeftMotorBackward</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">RightMotorBackward</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     
+     &nbsp;
+     &nbsp;
+    <font color="#000000">}</font>
+    
+    <font color="#00979c">void</font> <font color="#000000">turnLeft</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+    
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">LeftMotorBackward</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">RightMotorForward</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">LeftMotorForward</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">RightMotorBackward</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+    
+     &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">500</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">LeftMotorForward</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">RightMotorForward</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">LeftMotorBackward</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">RightMotorBackward</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+    <font color="#000000">}</font>
+    
+    
+    </pre><br><br>
+    so,now we have complete this project <br>
+    if you want to see this how we made this just click here:-<a href="https://youtu.be/2O3i-uDazms">how to make a obstacle avoiding robot using arduino uno</a><br>
+    <div class="thank">thank you</div><br><br>
+ <p align="center"><a href="https://www.youtube.com/channel/UCkdZZAKXrLijL6Cjfq6j4Ww"><img src="E:\harshak\pictures\Screenshots\harshk.png" height="377" width="600"></a>
+</body>
+</html>

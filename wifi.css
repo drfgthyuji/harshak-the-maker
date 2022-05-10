@@ -1,0 +1,43 @@
+.har{
+    font-family:Cooper ;
+    text-align: center;
+    font-size: 45px;
+}
+.btn{
+    background-color: blue;
+    padding: 12px 16px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.btn:hover{
+background-color: aqua;
+}
+.harshak{
+    text-align: center;
+}
+.how{
+    color: aliceblue;
+    font-size: 30px;
+    font-family:cooper ;
+}
+.yo{
+    font-family:Constantia ;
+}
+.h{
+    font-family: cooper;
+}
+.a{
+    font-size:Courier ;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.thank{
+    font-family: cooper;
+    font-size: 15px;
+}

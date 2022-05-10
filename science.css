@@ -1,0 +1,65 @@
+.hea{
+    font-family: Gill Sans;
+    font-size: 50px;
+    text-align: center;
+}
+.navbar{
+    background-color: black;
+    overflow: auto;
+    border-radius: 35px;
+}
+.navbar li{
+    color: aliceblue;
+    float: left;
+    list-style: none;
+    padding-bottom:30px ;
+    padding: 5px;
+
+    
+}
+.navbar li:hover{
+   color: rgb(241, 13, 13);
+}
+.navbar li a{
+    text-decoration: none;
+    color: aliceblue;
+}
+.navbar li a:hover{
+    color: rgb(241, 13, 13);
+}
+.selec{
+    float: right;
+    padding-bottom: 16px;
+    padding-right: 16px;
+}
+.yes{
+    font-family: Copperplate Gothic;
+    color: aqua;
+}
+.y{
+    color: rgb(0, 17, 255);
+    font-family: Copperplate Gothic;
+}
+.thank{
+    text-align: center;
+    font-family: cooper;
+    font-size: 45px;
+
+}
+.body{
+    background-image: no-repeat;
+}
+.button{
+    border-radius: 50%;
+}
+.button:hover{
+    cursor: pointer;
+}
+.search{
+    border-radius: 5%;
+}
+ol a:hover{
+   cursor: pointer;
+   padding: 0;
+   margin: 0;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="node.css">
+<body background="https://www.design.svgbackgrounds.com/wp-content/uploads/2021/05/liquid-cheese-yellow-background.png">
+    <!--add icon library-->
+<button class="btn"><a href="E:\harshak\desktop\website page\m\m.html"><i class="fa fa-home" aria-hidden="true"></i>home</button></a></button>
+<div class="harshak"><font face="Cooper"><h1>harshak the maker</h1></font><br><br></div>
+ <div class="c"><u> how to make a nodemcu based smart distance measurement machine</u></div><br><br>
+<div class="h">hello guys today i have make a nodemcu based smart distance measureing tool</div><br>
+<b>materials used:-</b><br>
+<table border="1">
+    <tr>
+        <th>component name</th>
+        <th>quantity</th>
+        <th>price</th>
+    </tr>
+    <tr>
+        <td><a href="https://www.electronicscomp.com/nodemcu-esp8266-wifi-development-board?gclid=CjwKCAjwopWSBhB6EiwAjxmqDaQYBx1A5mWL1FXloz_2bVzz8fK2b3L-0gfPtwMsWM571NKzUjL5XhoC4IcQAvD_BwE">nodemcu</a></td>
+        <td>01</td>
+        <td>₹209</td>
+    </tr>
+    <tr>
+        <td><a href="https://www.electronicscomp.com/ultrasonic-distance-sensor-module-hc-sr04-india?gclid=CjwKCAjwopWSBhB6EiwAjxmqDSKSn_KvAxn0kGgBzwc4Koo_8Z_vKCp3doaBrsUlphO1EQ6uH4AKSBoCeeUQAvD_BwE">ultrasonic sensor</a></td>
+        <td>01</td>
+        <td>₹59</td>
+    </tr>
+</table><br><br>
+<div class="hars">after you get the parts make the frame and set the nodemcu and ultrasonic in the frame</div><br>
+<div class="hars">after you set the ultrasonic sensor and nodemcu in the frame make the connection is given below</div><br>
+<p align="center"><img src="E:\harshak\pictures\Screenshots\Screenshot (29).png" height="377" width="600"><br><br>
+    <div class="hars">after you do the connections now you may come to the programming part.but before uploading the programm you may include the libraries that are given below</div><br>
+<p align="left"><div class="you"><a href="https://github.com/ekstrand/ESP8266wifi">esp8266wifi.h</a><br>
+<a href="https://github.com/blynkkk/blynk-library">blynksimplEsp8266.h</a></div>
+<div class="hars">after you include the library just copy paste and upload the code given below:-</div><br>
+<pre>
+    <font color="#5e6d03">#define</font> <font color="#d35400">BLYNK_PRINT</font> <b><font color="#d35400">Serial</font></b>
+    
+    
+    <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#d35400">ESP8266WiFi</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+    <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#000000">BlynkSimpleEsp8266</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+    <font color="#5e6d03">#define</font> <font color="#000000">TRIGGERPIN</font> <font color="#000000">D1</font>
+    <font color="#5e6d03">#define</font> <font color="#000000">ECHOPIN</font> &nbsp;&nbsp;&nbsp;<font color="#000000">D2</font>
+    <font color="#434f54">&#47;&#47; You should get Auth Token in the Blynk App.</font>
+    <font color="#434f54">&#47;&#47; Go to the Project Settings (nut icon).</font>
+    <font color="#00979c">char</font> <font color="#000000">auth</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;your auth code&#34;</font><font color="#000000">;</font>
+    
+    <font color="#434f54">&#47;&#47; Your WiFi credentials.</font>
+    <font color="#434f54">&#47;&#47; Set password to &#34;&#34; for open networks.</font>
+    <font color="#00979c">char</font> <font color="#000000">ssid</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;ssid name&#34;</font><font color="#000000">;</font><font color="#434f54">&#47;&#47;your wifi name</font>
+    <font color="#00979c">char</font> <font color="#000000">pass</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;ssid pass&#34;</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;your wifi password</font>
+    
+    <b><font color="#d35400">WidgetLCD</font></b> <font color="#000000">lcd</font><font color="#000000">(</font><font color="#00979c">V1</font><font color="#000000">)</font><font color="#000000">;</font>
+    
+    <font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font>
+    <font color="#000000">{</font>
+     &nbsp;<font color="#434f54">&#47;&#47; Debug console</font>
+     &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font>
+    <font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">TRIGGERPIN</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">ECHOPIN</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<b><font color="#d35400">Blynk</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">auth</font><font color="#434f54">,</font> <font color="#000000">ssid</font><font color="#434f54">,</font> <font color="#000000">pass</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#434f54">&#47;&#47; You can also specify server:</font>
+     &nbsp;<font color="#434f54">&#47;&#47;Blynk.begin(auth, ssid, pass, &#34;blynk-cloud.com&#34;, 8442);</font>
+     &nbsp;<font color="#434f54">&#47;&#47;Blynk.begin(auth, ssid, pass, IPAddress(192,168,1,100), 8442);</font>
+    
+     &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">clear</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;Use it to clear the LCD Widget</font>
+     &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">0</font><font color="#434f54">,</font> <font color="#005c5f">&#34;Distance in cm&#34;</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; use: (position X: 0-15, position Y: 0-1, &#34;Message you want to print&#34;)</font>
+     &nbsp;<font color="#434f54">&#47;&#47; Please use timed events when LCD printintg in void loop to avoid sending too many commands</font>
+     &nbsp;<font color="#434f54">&#47;&#47; It will cause a FLOOD Error, and connection will be dropped</font>
+    <font color="#000000">}</font>
+    
+    <font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font>
+    <font color="#000000">{</font>
+     &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">clear</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">0</font><font color="#434f54">,</font> <font color="#005c5f">&#34;Distance in cm&#34;</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; use: (position X: 0-15, position Y: 0-1, &#34;Message you want to print&#34;)</font>
+     &nbsp;<font color="#00979c">long</font> <font color="#000000">duration</font><font color="#434f54">,</font> <font color="#000000">distance</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">TRIGGERPIN</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;
+     &nbsp;<font color="#d35400">delayMicroseconds</font><font color="#000000">(</font><font color="#000000">3</font><font color="#000000">)</font><font color="#000000">;</font> 
+     &nbsp;
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">TRIGGERPIN</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#d35400">delayMicroseconds</font><font color="#000000">(</font><font color="#000000">12</font><font color="#000000">)</font><font color="#000000">;</font> 
+     &nbsp;
+     &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">TRIGGERPIN</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">duration</font> <font color="#434f54">=</font> <font color="#d35400">pulseIn</font><font color="#000000">(</font><font color="#000000">ECHOPIN</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">distance</font> <font color="#434f54">=</font> <font color="#000000">(</font><font color="#000000">duration</font><font color="#434f54">&#47;</font><font color="#000000">2</font><font color="#000000">)</font> <font color="#434f54">&#47;</font> <font color="#000000">29.1</font><font color="#000000">;</font>
+     &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">distance</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;Cm&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">7</font><font color="#434f54">,</font> <font color="#000000">1</font><font color="#434f54">,</font> <font color="#000000">distance</font><font color="#000000">)</font><font color="#000000">;</font>
+     &nbsp;<b><font color="#d35400">Blynk</font></b><font color="#434f54">.</font><font color="#d35400">run</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+    
+     &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font>
+    
+    <font color="#000000">}</font>
+    
+    
+    </pre><br><br>
+    <div class="hars">so this way you can make this project</div><br><br>
+<p align="center"><b>thank you</b><br><br>
+    <p align="center"><a href="https://www.youtube.com/channel/UCkdZZAKXrLijL6Cjfq6j4Ww"> <img src="E:\harshak\pictures\Screenshots\harshk.png" height="400" width="600"></a>
+</body>
+</html>
